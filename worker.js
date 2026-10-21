@@ -1,10 +1,10 @@
-const CACHE_NAME = 'northstar-family-v1';
-const ASSETS = ['./', './index.html', './family.css', './family.js', './manifest.webmanifest', './mark.svg', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
+const CACHE_NAME = 'northstar-family-edition-cloud-1';
+const ASSETS = ['./', './index.html', './family.css', './family.js', './cloud-sync.js', './supabase-config.js', './manifest.webmanifest', './mark.svg', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', event => {
-  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith('northstar-shell-') && k !== CACHE_NAME).map(k => caches.delete(k)))).then(() => self.clients.claim()));
+  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith('northstar-family-') && k !== CACHE_NAME).map(k => caches.delete(k)))).then(() => self.clients.claim()));
 });
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
