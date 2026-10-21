@@ -1,38 +1,28 @@
-# Northstar Family Edition — GitHub starter
+# Northstar Family Edition
 
-This is a starter fork of the existing Northstar PWA, prepared as a separate GitHub repository. It retains the current single-file frontend, manifest, service worker, icons and local backup approach so the existing UI can be extended without starting from scratch.
+An installable, offline-first household planner prototype. Upload the contents of this folder to the **root** of your GitHub repository.
 
-## Important status
+## Included in this prototype
+- Household name and module toggles
+- Weekly meal planner and editable recipe collection
+- Recipe ingredient add-to-shopping-list flow
+- Shopping list with check-off, removal and text export
+- Chores with person and due date
+- Household calendar/events
+- Noticeboard
+- Browser-local storage and JSON backup/restore
+- PWA manifest and service worker for offline caching
 
-**This ZIP is a starter scaffold, not a completed cloud-synchronised Family Edition.** The current frontend is still the original local-workspace implementation with family branding. Cloud accounts, invitation redemption, module-selection onboarding, granular sharing permissions, and robust offline synchronisation must be implemented and tested before sharing real family data. Do not treat the branding changes as proof those features are live.
+## Publish with GitHub Pages
+1. Commit these files to the repository root (replace `index.html`, `worker.js`, and `manifest.webmanifest`; add `family.css`, `family.js`, and `personal-workspace-legacy.html`).
+2. In GitHub, open **Settings → Pages**.
+3. Select **Deploy from a branch**, choose `main` and `/(root)`, then save.
+4. Wait for the Pages deployment to finish, then open the published URL. On mobile, use your browser's **Add to Home Screen** option if desired.
 
-## Files
+## Current limitations — read before using
+This is a local prototype, not yet a multi-user household service. Data is saved only in the current browser on the current device. There is no sign-in, invite/join flow, cloud sync, shared-record permissions, or trusted server-side access control. The included `supabase/schema.sql` is an initial development scaffold and has not been deployed or security-tested. Do not put sensitive personal information in this prototype.
 
-- `index.html` — existing Northstar frontend, rebranded as Family Edition.
-- `worker.js` — service worker / offline shell.
-- `manifest.webmanifest` — installable PWA metadata.
-- `mark.svg`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png` — app artwork.
-- `supabase/schema.sql` — initial backend schema and RLS policy starter.
-- `FAMILY_EDITION_IMPLEMENTATION.md` — implementation order and privacy model.
+Food labels are reminders only. For gluten allergies or coeliac disease, check each ingredient and manufacturer cross-contact information; this app cannot certify food safety.
 
-## Deploy to GitHub Pages
-
-1. Create a new repository for Northstar Family Edition.
-2. Extract the ZIP and upload the **contents** to the repository root (not the ZIP itself and not an extra nested folder).
-3. Commit to the `main` branch.
-4. Open **Settings → Pages** and select **Deploy from a branch**, `main`, `/(root)`.
-5. Open the generated Pages URL in Safari while online, then use **Share → Add to Home Screen**.
-
-GitHub Pages hosts the frontend only. It does not provide authentication or a private database.
-
-## Backend setup (later phase)
-
-1. Create a Supabase project.
-2. Review `supabase/schema.sql` and run it in a development project first.
-3. Test RLS using two separate user accounts before storing real household data.
-4. Add only the Supabase project URL and public anon key to frontend configuration. Never put a service-role key in frontend code.
-5. Implement auth, invitation creation/redemption, local persistence, an outbox, conflict handling, and sync status.
-
-## Data safety
-
-Use test data until the backend and permissions have been audited. Keep backups outside the repository. Never commit personal exports, `.env` files, passwords, tokens or private family records.
+## Backup
+Open **Settings → Export backup JSON** regularly. Store the backup somewhere private. Import is available from the same screen.

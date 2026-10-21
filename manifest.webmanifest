@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Northstar \u2014 Personal Workspace",
-  "short_name": "Northstar",
-  "description": "A private personal workspace for routines, planning, tasks, money, projects, meals and notes.",
+  "name": "Northstar Family Edition",
+  "short_name": "Northstar Family",
+  "description": "Offline-first household planner",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

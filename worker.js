@@ -1,5 +1,5 @@
-const CACHE_NAME = 'northstar-shell-v2';
-const ASSETS = ['./', './index.html', './manifest.webmanifest', './mark.svg'];
+const CACHE_NAME = 'northstar-family-v1';
+const ASSETS = ['./', './index.html', './family.css', './family.js', './manifest.webmanifest', './mark.svg', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
 });
