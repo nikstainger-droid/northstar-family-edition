@@ -1,4 +1,4 @@
-const CACHE_NAME = 'northstar-family-edition-cloud-1';
+const CACHE_NAME = 'northstar-family-edition-cloud-2';
 const ASSETS = ['./', './index.html', './family.css', './family.js', './cloud-sync.js', './supabase-config.js', './manifest.webmanifest', './mark.svg', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
